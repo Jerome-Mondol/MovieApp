@@ -1,0 +1,39 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+html, body {
+   height: 100%;
+   width: 100%;
+   font-family: "Fira code";
+}
+
+
+.card {
+    background: rebeccapurple;
+    border-radius: 20px;
+    margin: 20px;
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+}
+
+.title {
+    color: white;
+}
+
+.ratings {
+    color: orange;
+    font-size: 15px;
+}
+
+.liked {
+    background: purple;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+
+}
