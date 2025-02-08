@@ -23,7 +23,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
 
-  useDebounce(() => setDebounceSearchTerm(searchTerm), 500, [searchTerm])
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm])
 
   const fetchMovies = async (query = '') => {
     setIsLoading(true);
@@ -32,7 +32,7 @@ const App = () => {
     try {
       const endpoint = query
        ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}}`
-      : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+       : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
 
       const response = await fetch(endpoint, API_OPTIONS);
 
@@ -48,7 +48,12 @@ const App = () => {
         return;
       }
 
+
       setMovieList(data.results || []);
+
+
+      
+
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
       setErrorMessage("Error Fetching Movies Please try again later.");
@@ -67,16 +72,13 @@ const App = () => {
 
       <div className="wrapper">
         <header>
-          {/* Header Image */}
           <img src="./hero.png" alt="Hero Banner" />
 
-          {/* Hero text */}
           <h1 className="">
             Find <span className="text-gradient">Movies</span> You'll Enjoy
             Without the Hassel
           </h1>
 
-          {/* Search */}
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>
 
